@@ -41,12 +41,13 @@ footer {
 
 .window_button
 {
+	margin: auto 0.5em auto 0.5em;
 	-webkit-app-region: no-drag;
 	cursor: pointer;
 	display: inline-block;
 	border-radius: 0.5em;
-	width: 1em;
-	height: 1em;
+	width: 0.75em;
+	height: 0.75em;
 	border: 1px solid #ccc
 }
 
