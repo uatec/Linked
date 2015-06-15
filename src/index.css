@@ -4,32 +4,49 @@ body {
 	margin: 0;
 }
 
-header {
-	position: absolute;
-	width: 500px;
-	height: 250px;
-	top: 50%;
-	left: 50%;
-	margin-top: -125px;
-	margin-left: -250px;
-	text-align: center;
+input, button, a, select {
+	-webkit-app-region: no-drag;
 }
 
-header h1 {
-	font-family: 'Helvetica Neue', Helvetica, sans-serif;
-	font-size: 60px;
-	font-weight: 100;
-	margin: 0;
-	padding: 0;
+header {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	padding: 1em;
+	height: 1em;
+}
+
+section.main {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: #ababab;
+	margin-top: 3em;
+	margin-bottom: 3em;
+	overflow: auto;
+}
+
+footer {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: #99aacc;
+	padding: 1em;
+	height: 1em;
 }
 
 window_button
 {
+	-webkit-app-region: no-drag;
 	cursor: pointer;
 	display: inline-block;
-	border-radius: 5px;
-	width: 10px;
-	height: 10px;
+	border-radius: 0.5em;
+	width: 1em;
+	height: 1em;
 	border: 1px solid #ccc
 }
 
