@@ -59,6 +59,28 @@
 					);
 				}
 			});
+			
+			var Topic = React.createClass({
+				render: function() {
+					return (
+						<h2>{this.props.data.title}</h2>
+					);
+				}
+			});
+			
+			var TopicMap = React.createClass({
+				render: function() {
+					var topicElements = [];
+					this.props.data.forEach(function(topic) {
+								topicElements.push(<Topic data={topic} />);
+					    	});
+					return (
+						<div>
+							{topicElements}
+						</div>
+					);
+				}
+			});
 				
 			React.render(
 				<div>
@@ -69,6 +91,34 @@
 				</div>,
 				document.getElementsByTagName('header')[0]
 			);
+			
+			var data = [
+				{
+					'id': '1',
+					'title': 'Topic 1',
+					'occurrences': [2, 3]
+				},
+				{
+					'id': '2',
+					'title': 'Topic 2',
+					'occurrences': []
+				},
+				{
+					'id': '3',
+					'title': 'Topic 3',
+					'occurrences': [4]
+				},
+				{
+					'id': '4',
+					'title': 'Topic 4',
+					'occurrences': []
+				}
+			];
+			
+			React.render(
+				<TopicMap data={data} />,
+				document.getElementsByClassName('main')[0]
+				);
 		</script>
 	</body>
 </html>
