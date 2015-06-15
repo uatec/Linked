@@ -46,3 +46,15 @@ app.on('activate-with-no-open-windows', function () {
 app.on('ready', function () {
 	mainWindow = createMainWindow();
 });
+
+var ipc = require('ipc');
+
+ipc.on('window-commands', function(event, arg) {
+	mainWindow[arg]();
+	switch (arg)
+	{
+		case 'close':
+			app.quit();
+			break;
+	}
+});

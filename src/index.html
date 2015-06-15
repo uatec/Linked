@@ -22,6 +22,9 @@
 			</footer>
 		</div>
 		<script type="text/jsx">
+		
+			var ipc = require('ipc');
+			
 			var CommentBox = React.createClass({
 				render: function() {
 					return (
@@ -33,12 +36,18 @@
 			});
 			
 			var WindowButton = React.createClass({
+				handleClick: function() {
+					if ( 'command' in this.props )
+					{
+						ipc.send('window-commands', this.props.command);
+					}
+				},
 				render: function() {
 					var colourStyle = {
 						backgroundColor: this.props.color
 					};
 					return (
-						<div className="window_button" style={colourStyle}>&nbsp;</div>
+						<div className="window_button" onClick={this.handleClick} style={colourStyle}>&nbsp;</div>
 					);
 				}
 			});
@@ -53,9 +62,9 @@
 				
 			React.render(
 				<div>
-					<WindowButton color="#FE5D5B" />
-					<WindowButton color="#FEC035" />
-					<WindowButton color="#26C83F" />
+					<WindowButton color="#FE5D5B" command="close" />
+					<WindowButton color="#FEC035" command="minimize" />
+					<WindowButton color="#26C83F" command="maximize" />
 					<SearchBox />
 				</div>,
 				document.getElementsByTagName('header')[0]
