@@ -4,9 +4,11 @@
 		<meta charset="utf-8">
 		<title>Electron boilerplate</title>
 		<link rel="stylesheet" href="index.css">
+		<script src="node_modules/react/dist/react.js"></script>
+		<script src="node_modules/react/dist/JSXTransformer.js"></script>
 	</head>
 	<body style="-webkit-user-select: none;">
-		<div class="container">
+		<div id="container">
 			<header style="-webkit-app-region: drag;">
 				<window_button style="background-color: #FE5D5B">&nbsp;</window_button>
 				<window_button style="background-color: #FEC035">&nbsp;</window_button>
@@ -19,5 +21,45 @@
 				Ready
 			</footer>
 		</div>
+		<script type="text/jsx">
+			var CommentBox = React.createClass({
+				render: function() {
+					return (
+						<div className="commentBox">
+							Hello, world! I am a CommentBox.
+						</div>
+					);
+				}
+			});
+			
+			var WindowButton = React.createClass({
+				render: function() {
+					var colourStyle = {
+						backgroundColor: this.props.color
+					};
+					return (
+						<div className="window_button" style={colourStyle}>&nbsp;</div>
+					);
+				}
+			});
+			
+			var SearchBox = React.createClass({
+				render: function() {
+					return (
+						<input className="searchBox" placeholder="Search" />	
+					);
+				}
+			});
+				
+			React.render(
+				<div>
+					<WindowButton color="#FE5D5B" />
+					<WindowButton color="#FEC035" />
+					<WindowButton color="#26C83F" />
+					<SearchBox />
+				</div>,
+				document.getElementsByTagName('header')[0]
+			);
+		</script>
 	</body>
 </html>

@@ -39,7 +39,7 @@ footer {
 	height: 1em;
 }
 
-window_button
+.window_button
 {
 	-webkit-app-region: no-drag;
 	cursor: pointer;
@@ -50,6 +50,10 @@ window_button
 	border: 1px solid #ccc
 }
 
-window_button:clicked  { 
+.window_button:clicked  { 
 	background-color: bisque;
+}
+
+.searchBox {
+	float: right;
 }
